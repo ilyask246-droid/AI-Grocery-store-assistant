@@ -1,0 +1,26 @@
+export const PRODUCTS = [
+  { sku: 'rice', name: 'Rice', unit: 'kg', price: 180, stock: 80, category: 'Grains', aliases: ['chawal', 'basmati'] },
+  { sku: 'atta', name: 'Flour (Atta)', unit: 'kg', price: 140, stock: 60, category: 'Grains', aliases: ['flour', 'wheat flour'] },
+  { sku: 'sugar', name: 'Sugar', unit: 'kg', price: 160, stock: 45, category: 'Staples', aliases: ['cheeni'] },
+  { sku: 'salt', name: 'Salt', unit: 'pack', price: 60, stock: 40, category: 'Staples', aliases: [] },
+  { sku: 'oil', name: 'Cooking Oil', unit: 'liter', price: 520, stock: 28, category: 'Staples', aliases: ['tel', 'cooking oil'] },
+  { sku: 'daal', name: 'Lentils (Daal)', unit: 'kg', price: 280, stock: 35, category: 'Grains', aliases: ['lentils', 'dal', 'daal mash', 'masoor'] },
+  { sku: 'milk', name: 'Milk', unit: 'liter', price: 220, stock: 24, category: 'Dairy', aliases: ['doodh', 'packet milk'] },
+  { sku: 'yogurt', name: 'Yogurt', unit: 'kg', price: 200, stock: 18, category: 'Dairy', aliases: ['dahi'] },
+  { sku: 'butter', name: 'Butter', unit: 'pack', price: 350, stock: 16, category: 'Dairy', aliases: ['makhan'] },
+  { sku: 'eggs', name: 'Eggs', unit: 'dozen', price: 360, stock: 22, category: 'Dairy', aliases: ['anda', 'egg'] },
+  { sku: 'bread', name: 'Bread', unit: 'loaf', price: 150, stock: 20, category: 'Bakery', aliases: ['double roti'] },
+  { sku: 'tea', name: 'Tea', unit: 'pack', price: 450, stock: 14, category: 'Beverages', aliases: ['chai'] },
+  { sku: 'potato', name: 'Potatoes', unit: 'kg', price: 80, stock: 50, category: 'Produce', aliases: ['aloo', 'potato'] },
+  { sku: 'onion', name: 'Onions', unit: 'kg', price: 90, stock: 42, category: 'Produce', aliases: ['pyaz', 'onion'] },
+  { sku: 'tomato', name: 'Tomatoes', unit: 'kg', price: 120, stock: 30, category: 'Produce', aliases: ['tamatar'] },
+  { sku: 'banana', name: 'Bananas', unit: 'dozen', price: 180, stock: 12, category: 'Produce', aliases: ['kela', 'banana'] },
+  { sku: 'apple', name: 'Apples', unit: 'kg', price: 280, stock: 15, category: 'Produce', aliases: ['seb'] },
+  { sku: 'chicken', name: 'Chicken', unit: 'kg', price: 520, stock: 18, category: 'Meat', aliases: ['murghi'] },
+  { sku: 'soap', name: 'Soap', unit: 'bar', price: 80, stock: 36, category: 'Household', aliases: ['sabun'] },
+  { sku: 'detergent', name: 'Detergent', unit: 'pack', price: 320, stock: 20, category: 'Household', aliases: ['surf', 'washing powder'] }
+];
+
+export const CATEGORIES = [...new Set(PRODUCTS.map((p) => p.category))];
+
+export const LOW_STOCK_THRESHOLD = 10;

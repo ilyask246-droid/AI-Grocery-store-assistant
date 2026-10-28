@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Cart — Grocery Store Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">G</div>
+          <div>
+            <h1>Green Cart</h1>
+            <p>Grocery store agent</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <button class="nav-btn active" data-view="chat" type="button">Chat</button>
+          <button class="nav-btn" data-view="inventory" type="button">Inventory</button>
+          <button class="nav-btn" data-view="sales" type="button">Sales</button>
+        </nav>
+        <div class="sidebar-stats" id="sidebar-stats"></div>
+        <div class="sidebar-foot">
+          <span>Store desk</span>
+          <span id="clock"></span>
+        </div>
+      </aside>
+
+      <main class="stage">
+        <section class="view view-chat active" id="view-chat">
+          <header class="chat-head">
+            <div>
+              <h2>Store Assistant</h2>
+              <p>Take orders, check stock, prices, and today's sales</p>
+            </div>
+            <div class="head-pills">
+              <span class="pill live">Counter open</span>
+            </div>
+          </header>
+          <div class="chat-log" id="chat-log"></div>
+          <div class="chips" id="chips">
+            <button class="chip" type="button" data-fill="2 kg rice, 1 dozen eggs, 3 liters milk">2 kg rice, 1 dozen eggs, 3 liters milk</button>
+            <button class="chip" type="button" data-fill="1 kg sugar and 2 liters cooking oil">1 kg sugar and 2 liters cooking oil</button>
+            <button class="chip" type="button" data-fill="How much is chicken?">How much is chicken?</button>
+            <button class="chip" type="button" data-fill="Do you have tomatoes?">Do you have tomatoes?</button>
+            <button class="chip" type="button" data-fill="Show products">Show products</button>
+            <button class="chip" type="button" data-fill="Restock 20 kg flour">Restock 20 kg flour</button>
+          </div>
+          <form class="composer" id="composer">
+            <input
+              id="prompt"
+              type="text"
+              autocomplete="off"
+              placeholder="2 kg rice, 1 dozen eggs, 3 liters milk"
+            />
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <section class="view view-ledger" id="view-inventory">
+          <header class="ledger-head">
+            <div>
+              <h2>Inventory</h2>
+              <p>Live stock, prices, and low-stock alerts</p>
+            </div>
+            <div class="ledger-actions">
+              <select id="filter-category">
+                <option value="">All categories</option>
+              </select>
+            </div>
+          </header>
+          <div class="stat-grid" id="inv-stats"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Value</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="inv-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view view-ledger" id="view-sales">
+          <header class="ledger-head">
+            <div>
+              <h2>Sales</h2>
+              <p>Orders taken at the counter</p>
+            </div>
+            <div class="ledger-actions">
+              <button type="button" id="export-csv">Export CSV</button>
+            </div>
+          </header>
+          <div class="stat-grid" id="sales-stats"></div>
+          <div class="bars-card">
+            <h3>Top products</h3>
+            <div id="bars"></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="sales-body"></tbody>
+            </table>
+            <p class="empty" id="sales-empty">No sales yet. Place an order in chat.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/app.js?v=store3"></script>
+  </body>
+</html>
